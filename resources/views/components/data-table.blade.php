@@ -21,7 +21,7 @@
                         $attrs = explode('.', $item['attr']);
                         $data = $obj->{$attrs[0]};
                         for ($i = 1; $i < count($attrs); $i++)
-                            $data = $data->{$attrs[$i]};
+                            if (!is_null($data)) $data = $data->{$attrs[$i]};
                     ?>
                     <td>{{ $data }}</td>
                     @endif

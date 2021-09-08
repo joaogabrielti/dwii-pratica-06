@@ -35,8 +35,8 @@ class VeterinarioController extends Controller {
     public function store(Request $request) {
         $validatedData = array_map('mb_strtoupper', $request->validate([
             'nome' => ['required', 'string'],
-            'crmv' => ['required', 'number'],
-            'especialidade_id' => ['required', 'number']
+            'crmv' => ['required', 'numeric'],
+            'especialidade_id' => ['required', 'numeric']
         ]));
 
         DB::beginTransaction();
@@ -81,8 +81,8 @@ class VeterinarioController extends Controller {
     public function update(Request $request, Veterinario $veterinario) {
         $validatedData = array_map('mb_strtoupper', $request->validate([
             'nome' => ['required', 'string'],
-            'crmv' => ['required', 'number'],
-            'especialidade_id' => ['required', 'number']
+            'crmv' => ['required', 'numeric'],
+            'especialidade_id' => ['required', 'numeric']
         ]));
 
         DB::beginTransaction();
